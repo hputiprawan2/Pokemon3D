@@ -6,6 +6,12 @@
   "resources" : [
     {
       "filename" : "eevee-card.arreferenceimage"
+    },
+    {
+      "filename" : "oddish-card.arreferenceimage"
+    },
+    {
+      "filename" : "pichu-card.arreferenceimage"
     }
   ]
 }
