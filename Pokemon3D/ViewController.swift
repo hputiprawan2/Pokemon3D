@@ -64,6 +64,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             planeNode.eulerAngles.x = -.pi/2
             
             node.addChildNode(planeNode)
+            
+            // Add 3d pokemon to the scene
+            if let pokeScene = SCNScene(named: "art.scnassets/eevee.scn") {
+                if let pokeNode = pokeScene.rootNode.childNodes.first {
+                    planeNode.addChildNode(pokeNode)
+                }
+            }
         }
         return node
     }
