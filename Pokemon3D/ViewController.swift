@@ -54,6 +54,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // Only if detect the image provided
             let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width,
                                  height: imageAnchor.referenceImage.physicalSize.height)
+            
+            plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.5) // make the plane on the card more transparent
+            
             let planeNode = SCNNode(geometry: plane)
             
             // Rotate the planeNode by 90 degrees to make the plane flat down to the surface
