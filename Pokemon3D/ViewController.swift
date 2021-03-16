@@ -72,6 +72,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if let pokeScene = SCNScene(named: "art.scnassets/eevee.scn") {
                 if let pokeNode = pokeScene.rootNode.childNodes.first {
                     planeNode.addChildNode(pokeNode)
+                    pokeNode.eulerAngles.x = .pi/2 // rotate clockwise by 90 degrees
                 }
             }
         }
