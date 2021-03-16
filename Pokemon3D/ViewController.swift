@@ -48,28 +48,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         let node = SCNNode()
-     
+        if let imageAnchor = anchor as? ARImageAnchor {
+            // Only if detect the image provided
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width,
+                                 height: imageAnchor.referenceImage.physicalSize.height)
+            let planeNode = SCNNode(geometry: plane)
+            
+            // Rotate the planeNode by 90 degrees to make the plane flat down to the surface
+            // - .pi/2 = anti-clockwise by half pi = 90 degrees
+            planeNode.eulerAngles.x = -.pi/2
+            
+            node.addChildNode(planeNode)
+        }
         return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
     }
 }
